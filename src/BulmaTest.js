@@ -1,9 +1,8 @@
 import React from "react";
 import "./BulmaTest.css"
 
-export function dropdown() {
-    console.log("Request LonIn");
-    document.getElementById("dropDown").classList.toggle("show");
+function loginfunction() {
+    console.log("Log In putton preseseed")
 }
 
 export function BulmaTest(props) {
@@ -19,25 +18,46 @@ export function BulmaTest(props) {
             <div className="columns">
                 <a className="column is-two-quarter has-background-warning" href="https://www.vaxjolakers.se/lag/fe02-fe02mf1FN" target="_blank"><div >More info</div></a>
                 <a className="column is-one-quarter has-background-grey-dark" ><div>Sign up</div></a>
-                <a id="dropDown" className="column is-one-quarter has-background-black-bis"><div>Log in</div></a>
-                <div className="dropdownContent">
-                    Username:<input type="text" name="Username" /><br />
-                    Password:<input type="password" name="Password" />
-                </div>
+                <div className="dropdown is-hoverable">
+                    <div className="dropdown-trigger">
+                        <a id="dropDown" className="column is-one-quarter has-background-black-bis"><div>Log in</div></a>
+                            <span>
+                                <i className="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                            <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+                                <div className="dropdown-content">
+                                    <div className="dropdown-item">
+                                        <div className="dropdownContent">
+                                            Username:<input type="text" name="Username" /><br />
+                                            Password:<input type="password" name="Password" />
+                                            <button onClick={loginfunction}>Log in</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            
+                    </div>
+                    </div>
+
             </div>
-            <div class="dropdown is-hoverable">
-                <div class="dropdown-trigger">
-                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+            <div className="dropdown is-hoverable">
+                <div className="dropdown-trigger">
+                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                         <span>Hover me</span>
-                        <span class="icon is-small">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        <span className="icon is-small">
+                            <i className="fas fa-angle-down" aria-hidden="true"></i>
                         </span>
                     </button>
                 </div>
-                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                    <div class="dropdown-content">
-                        <div class="dropdown-item">
-                            <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+                <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+                    <div className="dropdown-content">
+                        <div className="dropdown-item">
+                            <div className="dropdownContent">
+                                Username:<input type="text" name="Username" /><br />
+                                Password:<input type="password" name="Password" />
+                                <button onClick={loginfunction}>Log in</button>
+                            </div>
                         </div>
                     </div>
                 </div>
