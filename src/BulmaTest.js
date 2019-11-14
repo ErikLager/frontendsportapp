@@ -18,9 +18,9 @@ export function BulmaTest(props) {
             <div className="columns">
                 <a className="column is-two-quarter has-background-warning" href="https://www.vaxjolakers.se/lag/fe02-fe02mf1FN" target="_blank"><div >More info</div></a>
                 <a className="column is-one-quarter has-background-grey-dark" ><div>Sign up</div></a>
-                <div className="dropdown is-hoverable">
+                <div className="dropdown is-hoverable column is-one-quarter" >
                     <div className="dropdown-trigger">
-                        <a id="dropDown" className="column is-one-quarter has-background-black-bis"><div>Log in</div></a>
+                        <div>Log in</div>
                             <span>
                                 <i className="fas fa-angle-down" aria-hidden="true"></i>
                             </span>
@@ -29,8 +29,8 @@ export function BulmaTest(props) {
                                     <div className="dropdown-item">
                                         <div className="dropdownContent">
                                             Username:<input type="text" name="Username" /><br />
-                                            Password:<input type="password" name="Password" />
-                                            <button onClick={loginfunction}>Log in</button>
+                                            Password:<input type="password" name="Password" /><br/>
+                                            <button className="login" onClick={loginfunction}>Log in</button>
                                         </div>
                                     </div>
                                 </div>
