@@ -2,8 +2,26 @@
     background: blue;
 }
 .column{
-    background: blue;
+    background-color: blue;
     margin-right: 10px;
     margin-left: 8px;
     margin-bottom: 20px;
+}
+a{
+    color: aliceblue;
+}
+.rr{
+    color: black;
+}
+.table,th,td{
+    border-style: solid;
+    border-width: 8px;
+    border-color: #3a95f2;
+    background-color: #F2973A;
+}
+table{
+    width: 100%;
+}
+td,th{
+    width: 50%;
 }
