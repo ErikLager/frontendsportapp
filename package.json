@@ -1,6 +1,7 @@
 {
   "name": "frontendsportapp",
   "version": "0.1.0",
+  "proxy": "http://localhost:3000",
   "private": true,
   "dependencies": {
     "bulma": "^0.8.0",

@@ -34,11 +34,9 @@ export function BulmaTest(props) {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        
-                            
+                            </div> 
                     </div>
-                    </div>
+                </div>
 
             </div>
             <div className="dropdown is-hoverable">
