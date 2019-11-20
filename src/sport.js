@@ -1,8 +1,8 @@
 import React from "react";
-import "./BulmaTest.css"
+import "./sport.css"
 
 
-export function BulmaTest(props) {
+export function Sport(props) {
     const [authString, setAuthstring] = React.useState(undefined);
     const [open, setopen] = React.useState(false);
     function loginfunction() {
@@ -11,6 +11,17 @@ export function BulmaTest(props) {
         const password = document.getElementById("password").value;
         setAuthstring(`Basic ${btoa(username + ":" + password)}`);
         console.log(username + password + authString);
+    }
+    let content;
+    if(props.tData){
+        const tableElements = props.tData.map(newData => <tr>
+            <td>{newData.id}</td>
+            <td>{newData.home_id}</td>
+            <td>{newData.home_points}</td>
+            <td>{newData.away_id}</td>
+            <td>{newData.away_points}</td>
+        </tr>)
+        content = tableElements
     }
 
     return <section className="section">
@@ -46,61 +57,46 @@ export function BulmaTest(props) {
                 <table>
                     <thead>
                         <tr>
-                        <th className="is-0">
+                        <th className="id">
                             Id
                         </th>
-                        <th className="is-5">
+                        <th className="ht">
                             Home Team
                         </th>
-                        <th className="is-5">
-                            Away Team
-                        </th>
-                        <th className="is-1">
+                        <th className="hs">
                             Home Score
                         </th>
-                        <th className="is-1">
+                        <th className="at">
+                            Away Team
+                        </th>
+                        <th className="as">
                             Away Score
                     </th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                Lakers
-                            </td>
-                            <td>
-                                Leksand
-                            </td>
-                            <td>
-                                3
-                            </td>
-                            <td>
-                                0
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                HV71
-                            </td>
-                            <td>
-                                Oskarshamn
-                            </td>
-                            <td>
-                                3
-                            </td>
-                            <td>
-                                0
-                            </td>
-                        </tr>
+                        {content}
                     </tbody>
                 </table>
             </div>
         </div>
     </section >
 }
+
+{/* <tr>
+                            <td>
+                                {newData.id}
+                            </td>
+                            <td>
+                                {newData.home_team}
+                            </td>
+                            <td>
+                                {newData.home_score}
+                            </td>
+                            <td>
+                                {newData.away_team}
+                            </td>
+    <td>
+        {newData.away_score}
+    </td>
+</tr> */}

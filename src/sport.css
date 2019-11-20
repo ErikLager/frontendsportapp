@@ -22,6 +22,18 @@ a{
 table{
     width: 100%;
 }
-td,th{
+/* td,th{
     width: 50%;
+} */
+.ht{
+    width: 45%;
+}
+.at{
+    width: 45%;
+}
+.hs{
+    width: 15%;
+}
+.as{
+    width: 15%;
 }
