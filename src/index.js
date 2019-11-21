@@ -5,8 +5,6 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import "../node_modules/bulma/css/bulma.css";
 import { Sport } from './sport';
-import GUIState from "./GUIState"
-import Labb from "./BasicAuthLabb"
 import {Fetchdata} from "./appdata";
 
 

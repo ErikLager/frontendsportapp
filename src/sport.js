@@ -1,20 +1,57 @@
 import React from "react";
 import "./sport.css"
+import Matcheditor from "./matcheditor";
+import { postMatch } from "./appdata";
 
 
 export function Sport(props) {
     const [authString, setAuthstring] = React.useState(undefined);
-    const [open, setopen] = React.useState(false);
+    const [logincheck, setlogincheck] = React.useState(0);
+
+
     function loginfunction() {
         console.log("Log In putton preseseed");
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+        const username = document.getElementById("username").value;//Erik
+        const password = document.getElementById("password").value;//Adm1n
         setAuthstring(`Basic ${btoa(username + ":" + password)}`);
-        console.log(username + password + authString);
+        console.log(username+ " " + password + " " + authString);
+        console.log("Authstring: "+setAuthstring)
+        setlogincheck(1);
+
+    }
+    function add(){
+        if (logincheck===1){
+        console.log("Add");
+        let home_id = document.getElementById("home_id").value;
+        let away_id = document.getElementById("away_id").value;
+        let home_score = document.getElementById("home_score").value;
+        let away_score = document.getElementById("away_score").value;
+        postMatch(home_id, away_id, Number(home_score), Number(away_score));
+        }
+        else {
+            console.log("LOG IN")
+        }
+    }
+    function remove(){
+        if (logincheck === 1){
+        console.log("Remove");
+        
+        }
+        else {
+            console.log("LOG IN")
+        }
+    }
+    function change(){
+        if (logincheck === 1){
+        console.log("Change");
+        }
+        else{
+            console.log("LOG IN")
+        }
     }
     let content;
     if(props.tData){
-        const tableElements = props.tData.map(newData => <tr>
+        const tableElements = props.tData.map(newData => <tr key={newData.id}>
             <td>{newData.id}</td>
             <td>{newData.home_id}</td>
             <td>{newData.home_points}</td>
@@ -22,6 +59,10 @@ export function Sport(props) {
             <td>{newData.away_points}</td>
         </tr>)
         content = tableElements
+    }
+    let addmatch;
+    if (logincheck === 1){
+        addmatch = <Matcheditor></Matcheditor>
     }
 
     return <section className="section">
@@ -79,24 +120,12 @@ export function Sport(props) {
                     </tbody>
                 </table>
             </div>
+            <button className="add" onClick={add}>Add a game</button>
+            <button className="change" onClick={change}>Change the result of a game</button>
+            <button className="remove" onClick={remove}>Remove a match</button>
+            
+            {addmatch}
         </div>
     </section >
+    
 }
-
-{/* <tr>
-                            <td>
-                                {newData.id}
-                            </td>
-                            <td>
-                                {newData.home_team}
-                            </td>
-                            <td>
-                                {newData.home_score}
-                            </td>
-                            <td>
-                                {newData.away_team}
-                            </td>
-    <td>
-        {newData.away_score}
-    </td>
-</tr> */}
