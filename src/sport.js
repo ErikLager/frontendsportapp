@@ -1,7 +1,7 @@
 import React from "react";
 import "./sport.css"
 import Matcheditor from "./matcheditor";
-import { postMatch } from "./appdata";
+import { postMatch, deleteMatch } from "./appdata";
 
 
 export function Sport(props) {
@@ -11,13 +11,19 @@ export function Sport(props) {
 
     function loginfunction() {
         console.log("Log In putton preseseed");
-        const username = document.getElementById("username").value;//Erik
-        const password = document.getElementById("password").value;//Adm1n
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
         setAuthstring(`Basic ${btoa(username + ":" + password)}`);
         console.log(username+ " " + password + " " + authString);
-        console.log("Authstring: "+setAuthstring)
+        console.log("Authstring: "+authString);
+        if (username === "Erik" && password === "Adm1n"){
         setlogincheck(1);
+        } 
+          
 
+    }
+    function logoutfunction(){
+        setlogincheck(0);
     }
     function add(){
         if (logincheck===1){
@@ -35,7 +41,8 @@ export function Sport(props) {
     function remove(){
         if (logincheck === 1){
         console.log("Remove");
-        
+        let matchid = document.getElementById("matchid").value;
+        deleteMatch(Number(matchid));
         }
         else {
             console.log("LOG IN")
@@ -83,6 +90,7 @@ export function Sport(props) {
                                         Username:<br /><input type="username" id="username" name="Username" /><br />
                                         Password:<br /><input type="password" id="password" name="Password" /><br />
                                         <button className="login" onClick={loginfunction}>Log in</button>
+                                        <button className="logout" onClick={logoutfunction}>Log out</button>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +130,7 @@ export function Sport(props) {
             </div>
             <button className="add" onClick={add}>Add a game</button>
             <button className="change" onClick={change}>Change the result of a game</button>
-            <button className="remove" onClick={remove}>Remove a match</button>
+            <button className="remove" onClick={remove}>Remove the match</button>
             
             {addmatch}
         </div>

@@ -22,6 +22,8 @@ export async function postMatch(home_id, away_id, home_points, away_points){
     console.log(backenddata);
 
 }
-export async function deleteMatch(){
-    fetch("/sportapp/api/match")
+export async function deleteMatch(matchid){
+    fetch("/sportApp/api/match?id="+matchid,{
+        method: "DELETE",
+    });
 }

@@ -39,6 +39,11 @@ export default function Matcheditor(props){
             <input type="text" id="home_score"></input><br/>
             away_score: 
             <input type="text" id="away_score"></input><br/>
+            Type in a id to delete a match <br/>
+            <input type="text" id="matchid"></input>
         </div>
+
+        
+        
     )
 }
