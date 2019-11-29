@@ -8,7 +8,10 @@ export function Sport(props) {
     const [authString, setAuthstring] = React.useState(undefined);
     const [logincheck, setlogincheck] = React.useState(0);
 
-
+/**
+ * function checks username & password for login
+ * at the moment it only fakes login 
+ */
     function loginfunction() {
         console.log("Log In putton preseseed");
         const username = document.getElementById("username").value;
@@ -25,6 +28,9 @@ export function Sport(props) {
     function logoutfunction(){
         setlogincheck(0);
     }
+    /**
+     * Read input fields and adds it to the database 
+     */
     function add(){
         if (logincheck===1){
         console.log("Add");
@@ -38,6 +44,11 @@ export function Sport(props) {
             console.log("LOG IN")
         }
     }
+    /**
+     * functions chechs if the user is logged in and if it's true
+     * adds the remove match function
+     * function change() does the same
+     */
     function remove(){
         if (logincheck === 1){
         console.log("Remove");
@@ -56,6 +67,9 @@ export function Sport(props) {
             console.log("LOG IN")
         }
     }
+    /**
+     * This converts the data to a format the backend can read
+     */
     let content;
     if(props.tData){
         const tableElements = props.tData.map(newData => <tr key={newData.id}>

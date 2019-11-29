@@ -1,6 +1,8 @@
 import React from "react";
 import "./matcheditor.css"
-
+/**
+ * This return the fields that contains the teams and the points
+ */
 export default function Matcheditor(props){
     return(
         <div>
